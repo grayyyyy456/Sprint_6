@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators.order_2_page_locators import Locators
@@ -33,7 +31,6 @@ class OrderPage2Mesto:
     def click_order_button(self):
         WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
         self.driver.find_element(*Locators.order_button).click()
-        time.sleep(2)
 
     def set_page_2(self, comment):
         self.set_date_field()

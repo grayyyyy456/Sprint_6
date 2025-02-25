@@ -38,7 +38,7 @@ class HomePageMesto(BasePage):
         self.click_element(Locators.question_7)
 
     @allure.step("Кликаем по восьмому вопросу")
-    def click_eighth_question(self):
+    def click_eight_question(self):
         self.click_element(Locators.question_8)
 
 
