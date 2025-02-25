@@ -9,7 +9,7 @@ class HomePageMesto(BasePage):
     def wait_for_load_questions(self):
         self.wait_for_element(Locators.questions, timeout=5)
 
-    @allure.step('Кликаем по первому вопросу')
+    @allure.step("Кликаем по первому вопросу")
     def click_first_question(self):
         self.click_element(Locators.question_1)
 

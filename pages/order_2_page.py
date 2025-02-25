@@ -1,37 +1,37 @@
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from locators.order_2_page_locators import Locators
+import allure
+from pages.base_page import BasePage
 
+class OrderPage2Mesto(BasePage):
 
-class OrderPage2Mesto:
-    def __init__(self, driver):
-        self.driver = driver
-
+    @allure.step("Ожидание загрузки второй страницы формы заказа")
     def wait_for_load_form(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(Locators.field))
+        self.wait_for_element(Locators.field, timeout=5)
 
+    @allure.step("Выбираем дату заказа")
     def set_date_field(self):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.field_date))
-        self.driver.find_element(*Locators.field_date).click()
-        self.driver.find_element(*Locators.date_selection).click()
+        self.click_element(Locators.field_date)
+        self.click_element(Locators.date_selection)
 
+    @allure.step("Выбираем срок аренды")
     def set_rental_period_field(self):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.field_rental_period))
-        self.driver.find_element(*Locators.field_rental_period).click()
-        self.driver.find_element(*Locators.rental_period_1).click()
+        self.click_element(Locators.field_rental_period)
+        self.click_element(Locators.rental_period_1)
 
+    @allure.step("Выбираем цвет")
     def set_color_field(self):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.field_color))
-        self.driver.find_element(*Locators.black_color).click()
+        self.click_element(Locators.black_color)
 
+    @allure.step("Вводим комментарий: {comment}")
     def set_comment_field(self, comment):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.field_comment))
-        self.driver.find_element(*Locators.field_comment).send_keys(comment)
+        self.wait_for_element(Locators.field_comment)
+        self.find_element(Locators.field_comment).send_keys(comment)
 
+    @allure.step("Кликаем на кнопку заказа")
     def click_order_button(self):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(Locators.order_button))
-        self.driver.find_element(*Locators.order_button).click()
+        self.click_element(Locators.order_button)
 
+    @allure.step("Заполняем страницу 2 заказа")
     def set_page_2(self, comment):
         self.set_date_field()
         self.set_rental_period_field()
