@@ -41,5 +41,25 @@ class HomePageMesto(BasePage):
     def click_eight_question(self):
         self.click_element(Locators.question_8)
 
+    @allure.step("Кликаем по верхней кнопке заказа")
+    def click_order_button_up(self):
+        self.click_element(Locators.order_button_up)
+
+    @allure.step("Кликаем по нижней кнопке заказа")
+    def click_order_button_down(self):
+        self.click_element(Locators.order_button_down)
+
+    @allure.step("Кликаем на кнопку Самокат в лого")
+    def click_scooter_logo(self):
+        self.click_element(Locators.scooter_button)
+
+    @allure.step("Кликаем на кнопку Яндекс в лого")
+    def click_yandex_button(self):
+        self.click_element(Locators.yandex_button)
+
+    @allure.step("Переключение на последнюю открытую вкладку")
+    def switch_to_last_tab(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
 
 
