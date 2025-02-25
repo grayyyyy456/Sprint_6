@@ -1,10 +1,7 @@
-import time
 import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
 from locators.home_page_locators import Locators
-from conftest import browser
 from pages.order_1_page import OrderPage1Mesto
 from pages.order_2_page import OrderPage2Mesto
 

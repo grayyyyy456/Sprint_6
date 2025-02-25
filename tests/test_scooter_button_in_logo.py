@@ -1,7 +1,6 @@
 import pytest
 from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
-from conftest import browser
 from urls import url_scooter
 
 
