@@ -2,6 +2,7 @@ import pytest
 from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
 from conftest import browser
+from urls import url_scooter
 
 
 class TestClickScooterButton:
@@ -11,5 +12,4 @@ class TestClickScooterButton:
         logo_scooter_button.wait_for_load_questions()
         browser.find_element(*Locators.order_button_up).click()
         browser.find_element(*Locators.scooter_button).click()
-        url_scooter = 'https://qa-scooter.praktikum-services.ru/'
         assert browser.current_url == url_scooter

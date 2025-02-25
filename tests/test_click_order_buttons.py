@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions
 from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
 from conftest import browser
+from urls import url_order
 
 
 class TestClickOrderButtons:
@@ -13,7 +14,6 @@ class TestClickOrderButtons:
         first_button.wait_for_load_questions()
         first_button_click = browser.find_element(*Locators.order_button_up)
         first_button_click.click()
-        url_order = 'https://qa-scooter.praktikum-services.ru/order'
         assert browser.current_url == url_order
 
     def test_click_2_order_button(self, browser):
@@ -23,5 +23,4 @@ class TestClickOrderButtons:
         browser.execute_script("arguments[0].scrollIntoView(true);", second_button_click)
         WebDriverWait(browser, 10).until(expected_conditions.element_to_be_clickable(Locators.order_button_down))
         second_button_click.click()
-        url_order = 'https://qa-scooter.praktikum-services.ru/order'
         assert browser.current_url == url_order
