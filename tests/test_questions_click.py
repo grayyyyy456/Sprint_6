@@ -3,6 +3,7 @@ from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
 import allure
 
+
 class TestClickQuestions:
 
     @allure.title("Проверка раскрытия первого вопроса")

@@ -3,13 +3,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators.order_1_page_locators import Locators
 import allure
 from pages.base_page import BasePage
+from pages.home_page import HomePageMesto
 
-
-class OrderPage1Mesto(BasePage):
+class OrderPage1Mesto(HomePageMesto, BasePage):
 
     @allure.step("Ожидаем загрузку формы")
     def wait_for_load_form(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(Locators.field))
+        self.wait_for_element(Locators.field)
 
     @allure.step("Заполняем поле 'Имя': {name}")
     def set_name_field(self, name):

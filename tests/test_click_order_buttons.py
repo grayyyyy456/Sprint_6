@@ -13,7 +13,7 @@ class TestClickOrderButtons:
         first_button = HomePageMesto(browser)
         first_button.wait_for_load_questions()
         first_button.click_element(Locators.order_button_up)
-        assert browser.current_url == url_order
+        assert first_button.get_current_url() == url_order
 
     @allure.title("Проверка нажатия на нижнюю кнопку заказа")
     def test_click_2_order_button(self, browser):
@@ -21,4 +21,4 @@ class TestClickOrderButtons:
         second_button.wait_for_load_questions()
         second_button.scroll_to_element(Locators.order_button_down)
         second_button.click_element(Locators.order_button_down)
-        assert browser.current_url == url_order
+        assert second_button.get_current_url() == url_order

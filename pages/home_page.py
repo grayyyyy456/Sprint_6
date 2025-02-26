@@ -47,6 +47,7 @@ class HomePageMesto(BasePage):
 
     @allure.step("Кликаем по нижней кнопке заказа")
     def click_order_button_down(self):
+        self.scroll_to_element(Locators.order_button_down)
         self.click_element(Locators.order_button_down)
 
     @allure.step("Кликаем на кнопку Самокат в лого")

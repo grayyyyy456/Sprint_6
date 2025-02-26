@@ -7,7 +7,6 @@ from pages.order_2_page import OrderPage2Mesto
 import allure
 
 
-
 class TestFillOutOrderForm:
 
     @allure.title("Проверка заполнения формы заказа")
@@ -17,14 +16,14 @@ class TestFillOutOrderForm:
     def test_fill_out_order_form(self, browser, name, last_name, address, metro, phone, comment):
         order = OrderPage1Mesto(browser)
         order.wait_for_load_form()
-        browser.find_element(*Locators.order_button_up).click()
+        order.click_order_button_up()
         order.set_page_1(name, last_name, address, metro, phone)
         order_page_2 = OrderPage2Mesto(browser)
         order_page_2.wait_for_load_form()
         order_page_2.set_page_2(comment)
-        WebDriverWait(browser, 10).until(expected_conditions.visibility_of_element_located(Locators.confirmation_window_1))
-        browser.find_element(*Locators.yes_button).click()
-        window = WebDriverWait(browser, 10).until(expected_conditions.visibility_of_element_located(Locators.status_button))
+        order_page_2.wait_for_element(Locators.confirmation_window_1)
+        order_page_2.click_element(Locators.yes_button)
+        window = order_page_2.find_element(Locators.status_button)
         assert window.is_displayed()
 
 

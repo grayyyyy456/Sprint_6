@@ -12,4 +12,4 @@ class TestClickScooterButton:
         logo_scooter_button.wait_for_load_questions()
         logo_scooter_button.click_order_button_up()
         logo_scooter_button.click_scooter_logo()
-        assert browser.current_url == url_scooter
+        assert logo_scooter_button.get_current_url() == url_scooter
