@@ -1,7 +1,6 @@
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
 from urls import url_yandex
 import allure

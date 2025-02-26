@@ -1,5 +1,4 @@
 import pytest
-from locators.home_page_locators import Locators
 from pages.home_page import HomePageMesto
 from urls import url_scooter
 import allure
