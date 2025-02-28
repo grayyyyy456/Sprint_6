@@ -1,7 +1,4 @@
 import pytest
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-from locators.home_page_locators import Locators
 from pages.order_1_page import OrderPage1Mesto
 from pages.order_2_page import OrderPage2Mesto
 import allure
@@ -21,9 +18,9 @@ class TestFillOutOrderForm:
         order_page_2 = OrderPage2Mesto(browser)
         order_page_2.wait_for_load_form()
         order_page_2.set_page_2(comment)
-        order_page_2.wait_for_element(Locators.confirmation_window_1)
-        order_page_2.click_element(Locators.yes_button)
-        window = order_page_2.find_element(Locators.status_button)
+        order_page_2.wait_for_confirmation_window()
+        order_page_2.click_yes_button()
+        window = order_page_2.find_status_button()
         assert window.is_displayed()
 
 

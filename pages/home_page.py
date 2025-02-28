@@ -58,9 +58,3 @@ class HomePageMesto(BasePage):
     def click_yandex_button(self):
         self.click_element(Locators.yandex_button)
 
-    @allure.step("Переключение на последнюю открытую вкладку")
-    def switch_to_last_tab(self):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-
-
-
